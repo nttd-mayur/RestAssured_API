@@ -28,7 +28,7 @@ import io.restassured.response.Response;
 				
 		}
 		
-		@Test(priority=2, dataProvider="UserNames", dataProviderClass=DataProviders.class)
+		//@Test(priority=2, dataProvider="UserNames", dataProviderClass=DataProviders.class)
 		public void testDeleteUserByName(String userName)
 		{
 				Response response=UserEndPoints.deleteUser(userName);

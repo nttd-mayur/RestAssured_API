@@ -53,7 +53,7 @@ public class UserModelTest {
 	}// public void createUSer() {
 	
 	
-	@Test(priority=1)
+	@Test(priority=2)
 	public void testGetUserName() {
 		logger.info("******** Reading User Info ***********");
 		Response response=UserEndPoints.readUser(this.userPayload.getUsername());
@@ -63,7 +63,7 @@ public class UserModelTest {
 		logger.info("******** User Info is displayed ***********");
 	}
 	
-	@Test(priority=2, dataProvider="UserNames", dataProviderClass=DataProviders.class)
+	@Test(priority=3, dataProvider="UserNames", dataProviderClass=DataProviders.class)
 	public void testDeleteUserByName(String userName)
 	{
 		logger.info("******** Deleting User ***********");

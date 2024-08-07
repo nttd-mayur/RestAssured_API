@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 //import static io.restassured.response;
-import com.github.scribejava.core.model.Response;
+//import com.github.scribejava.core.model.Response;
 
 import groovy.util.logging.Log;
 import io.restassured.http.ContentType;
