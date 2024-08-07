@@ -11,7 +11,7 @@ import io.restassured.response.Response;
 	public class UserDDTest {
 		
 		@Test(priority=1, dataProvider="Data", dataProviderClass=DataProviders.class )
-		public void testPostuser(String userID, String userName,String fname,String lname,String useremail,String pwd,String ph)
+		public void Module1_TC01_Postuser(String userID, String userName,String fname,String lname,String useremail,String pwd,String ph)
 		{
 			UserPojo userPayload=new UserPojo();
 			
@@ -28,8 +28,8 @@ import io.restassured.response.Response;
 				
 		}
 		
-		//@Test(priority=2, dataProvider="UserNames", dataProviderClass=DataProviders.class)
-		public void testDeleteUserByName(String userName)
+		@Test(priority=2, dataProvider="UserNames", dataProviderClass=DataProviders.class)
+		public void Module1_TC02_DeleteUserByName(String userName)
 		{
 				Response response=UserEndPoints.deleteUser(userName);
 				Assert.assertEquals(response.getStatusCode(),200);	

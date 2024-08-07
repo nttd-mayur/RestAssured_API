@@ -44,7 +44,7 @@ public class UserModelTest {
 	}//public void setupData()
 	
 	@Test(priority=1)
-	public void testCreateUser() {
+	public void Module2_TC01_CreateUser() {
 		logger.info("******** Creating User ***********");
 		Response response=UserEndPoints.createUser(userPayload);
 		response.then().log().all();
@@ -53,8 +53,8 @@ public class UserModelTest {
 	}// public void createUSer() {
 	
 	
-	@Test(priority=2)
-	public void testGetUserName() {
+	@Test(priority=1)
+	public void Module2_TC02_GetUserName() {
 		logger.info("******** Reading User Info ***********");
 		Response response=UserEndPoints.readUser(this.userPayload.getUsername());
 		
@@ -63,8 +63,8 @@ public class UserModelTest {
 		logger.info("******** User Info is displayed ***********");
 	}
 	
-	@Test(priority=3, dataProvider="UserNames", dataProviderClass=DataProviders.class)
-	public void testDeleteUserByName(String userName)
+	@Test(priority=2, dataProvider="UserNames", dataProviderClass=DataProviders.class)
+	public void Module2_TC03_DeleteUserByName(String userName)
 	{
 		logger.info("******** Deleting User ***********");
 			Response response=UserEndPoints.deleteUser(userName);

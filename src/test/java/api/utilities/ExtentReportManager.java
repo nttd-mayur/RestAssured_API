@@ -6,6 +6,7 @@ package api.utilities;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -31,18 +32,18 @@ public class ExtentReportManager implements ITestListener
 				
 		sparkReporter=new ExtentSparkReporter(".\\reports\\"+repName);//specify location of the report
 				
-		sparkReporter.config().setDocumentTitle("RestAssuredAutomationProject"); // Title of report
-		sparkReporter.config().setReportName("Pet Store Users API"); // name of the report
+		sparkReporter.config().setDocumentTitle("APIAutomationDemo"); // Title of report
+		sparkReporter.config().setReportName("Macaseinou Demo API Environment"); // name of the report
 		sparkReporter.config().setTheme(Theme.DARK);
 		
 		//printing from where test was executed.
 		extent=new ExtentReports();
 		extent.attachReporter(sparkReporter);
-		extent.setSystemInfo("Application", "Pest Store Users API");
+		extent.setSystemInfo("Application", "Macaseinou Demo Store API Application");
 		extent.setSystemInfo("Operating System", System.getProperty("os.name"));
-		extent.setSystemInfo("User Name", System.getProperty("user.name"));
+		//extent.setSystemInfo("User Name", System.getProperty("user.name"));
 		extent.setSystemInfo("Environemnt","QA");
-		extent.setSystemInfo("user","pavan");
+		extent.setSystemInfo("User Name","Mayur Karote");
 	}
 	
 		
@@ -61,7 +62,9 @@ public class ExtentReportManager implements ITestListener
 		test.assignCategory(result.getMethod().getGroups());
 		test.log(Status.FAIL, "Test Failed");
 		test.log(Status.FAIL, result.getThrowable().getMessage());
-	}
+		test.log(Status.FAIL, result.getThrowable().fillInStackTrace());
+		//test.log(LogStatus.INFO/ERROR, ExceptionUtils.getStackTrace(NULL))
+		} //mayur
 	
 	public void onTestSkipped(ITestResult result)
 	{
